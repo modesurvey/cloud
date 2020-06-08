@@ -1,0 +1,14 @@
+import * as firestore from '@google-cloud/firestore';
+import { TemporalAggregation } from './aggregation';
+import { PercentageView } from './view';
+
+const db = new firestore.Firestore({
+    projectId: 'surveybox-fe69c',
+    timestampsInSnapshots: true
+});
+
+const modesurveyTest = new TemporalAggregation(db, 'GsuDbAbxKhd39b1A2esv', 'Kwi4xoIpmsmbcTQDjTr7', 86400, 28);
+const percentageView = PercentageView(db, 'nBCvmKEQ6jwhniZLQeAU', 'GsuDbAbxKhd39b1A2esv', 60);
+
+export const modesurveyTestAggregation = modesurveyTest.Export();
+export const modesurveyTestView = percentageView.Export();
